@@ -182,11 +182,11 @@
             if (isPreviewMode) {
                 responseContent.classList.remove('code-mode');
                 responseContent.classList.add('preview-mode');
-                if (previewBtnText) previewBtnText.textContent = '◀ Code';
-                if (previewBtnIcon) previewBtnIcon.textContent = '◀';
-                previewBtn.style.background = 'rgba(249, 115, 22, 0.1)';
-                previewBtn.style.borderColor = '#f97316';
-                previewBtn.style.color = '#f97316';
+                if (previewBtnText) previewBtnText.textContent = '</> Code';
+                if (previewBtnIcon) previewBtnIcon.textContent = '</>';
+                previewBtn.style.background = 'none';
+                previewBtn.style.borderColor = '#3e3e42';
+                previewBtn.style.color = '#d4d4d4';
             } else {
                 responseContent.classList.remove('preview-mode');
                 responseContent.classList.add('code-mode');
