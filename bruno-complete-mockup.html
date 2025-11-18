@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno - Complete UI Redesign</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <div class="logo">
+                <div class="logo-icon">🔥</div>
+                <span>bruno</span>
+            </div>
+            <button class="menu-btn">⋯</button>
+            <div class="collection-name">
+                <span>📄</span>
+                <span>response-data-selector</span>
+            </div>
+        </div>
+        <div class="top-bar-right">
+            <button class="safe-mode">Safe Mode</button>
+            <button class="icon-btn">🏃</button>
+            <button class="icon-btn">👁</button>
+            <button class="icon-btn">⚙</button>
+            <select class="env-selector">
+                <option>No environments</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <div class="sidebar-tabs">
+                        <button class="sidebar-tab active" data-view="collections">Collections</button>
+                        <button class="sidebar-tab" data-view="history">History</button>
+                    </div>
+                    <button class="icon-btn" id="sidebarCollapseBtn" title="Collapse Sidebar">◀</button>
+                </div>
+                <div class="search-box">
+                    <input type="text" class="search-input" id="sidebarSearchInput" placeholder="Search requests ...">
+                </div>
+                <!-- Collections View -->
+                <div class="collections-list" id="collectionsView">
+                    <div class="collection-item">▸ Bruno-To-Postman-T...</div>
+                    <div class="collection-item">▸ Grpcbin</div>
+                    <div class="collection-item">▸ gPRC - WS folder co...</div>
+                    <div class="collection-item">▸ collection</div>
+                    <div class="collection-item">▸ GitHub REST API</div>
+                    <div class="collection-item">▸ Test for Bruno</div>
+                    <div class="collection-item">▸ bruno-testbench</div>
+                    <div class="collection-item">▸ Script and Tests Coll...</div>
+                    <div class="collection-item active">▾ response-data-selec...</div>
+                    <div class="collection-item" style="padding-left: 24px;">
+                        <span class="method-badge method-get">GET</span>
+                        users
+                    </div>
+                    <div class="collection-item" style="padding-left: 24px;">
+                        <span class="method-badge method-get">GET</span>
+                        html-site
+                    </div>
+                    <div class="collection-item" style="padding-left: 24px;">
+                        <span class="method-badge method-get">GET</span>
+                        javascript
+                    </div>
+                    <div class="collection-item" style="padding-left: 24px;">
+                        <span class="method-badge method-get">GET</span>
+                        large-response
+                    </div>
+                    <div class="collection-item" style="padding-left: 24px;">
+                        <span class="method-badge method-post">POST</span>
+                        html
+                    </div>
+                    <div class="collection-item" style="padding-left: 24px;">
+                        <span class="method-badge method-post">POST</span>
+                        request-xml
+                    </div>
+                    <div class="collection-item">▸ delete-resequencing</div>
+                </div>
+                <!-- History View -->
+                <div class="history-list" id="historyView" style="display: none;">
+                    <div class="history-item">
+                        <div class="history-item-header">
+                            <span class="method-badge method-get">GET</span>
+                            <span class="history-url">https://api.example.com/users</span>
+                        </div>
+                        <div class="history-item-meta">
+                            <span class="history-time">2 minutes ago</span>
+                            <span class="history-status status-ok">200 OK</span>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-item-header">
+                            <span class="method-badge method-post">POST</span>
+                            <span class="history-url">https://api.example.com/login</span>
+                        </div>
+                        <div class="history-item-meta">
+                            <span class="history-time">15 minutes ago</span>
+                            <span class="history-status status-ok">200 OK</span>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-item-header">
+                            <span class="method-badge method-get">GET</span>
+                            <span class="history-url">https://api.example.com/products</span>
+                        </div>
+                        <div class="history-item-meta">
+                            <span class="history-time">1 hour ago</span>
+                            <span class="history-status" style="color: #f97316;">404 Not Found</span>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-item-header">
+                            <span class="method-badge method-put">PUT</span>
+                            <span class="history-url">https://api.example.com/users/123</span>
+                        </div>
+                        <div class="history-item-meta">
+                            <span class="history-time">2 hours ago</span>
+                            <span class="history-status status-ok">200 OK</span>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-item-header">
+                            <span class="method-badge method-delete">DELETE</span>
+                            <span class="history-url">https://api.example.com/users/456</span>
+                        </div>
+                        <div class="history-item-meta">
+                            <span class="history-time">3 hours ago</span>
+                            <span class="history-status status-ok">204 No Content</span>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-item-header">
+                            <span class="method-badge method-get">GET</span>
+                            <span class="history-url">https://api.example.com/orders</span>
+                        </div>
+                        <div class="history-item-meta">
+                            <span class="history-time">Yesterday</span>
+                            <span class="history-status status-ok">200 OK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-resizer" id="sidebarResizer"></div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Request Tabs -->
+            <div class="request-tabs">
+                <button class="sidebar-expand-btn" id="sidebarExpandBtn" title="Expand Sidebar" style="display: none;">▶</button>
+                <button class="request-tab">
+                    <span class="tab-method method-post">POST</span>
+                    <span class="tab-name">request-...</span>
+                    <button class="tab-close">×</button>
+                </button>
+                <button class="request-tab">
+                    <span class="tab-method method-post">POST</span>
+                    <span class="tab-name">html</span>
+                    <button class="tab-close">×</button>
+                </button>
+                <button class="request-tab active">
+                    <span class="tab-method method-get">GET</span>
+                    <span class="tab-name">javascript</span>
+                    <button class="tab-close">×</button>
+                </button>
+                <button class="tab-add">+</button>
+            </div>
+
+            <!-- Request/Response Split -->
+            <div class="split-container">
+                <!-- Request Panel -->
+                <div class="request-panel" id="requestPanel">
+                    <!-- URL Bar -->
+                    <div class="url-bar">
+                        <select class="method-select">
+                            <option>POST</option>
+                            <option>GET</option>
+                            <option>PUT</option>
+                            <option>DELETE</option>
+                            <option>PATCH</option>
+                        </select>
+                        <input type="text" class="url-input" value="https://www.httpfaker.org/api/echo/custom">
+                        <div class="action-btns">
+                            <button class="action-btn">⚙</button>
+                            <button class="action-btn">📄</button>
+                        </div>
+                        <button class="send-btn">Send</button>
+                    </div>
+
+                    <!-- Request Tabs -->
+                    <div class="request-tabs-panel" id="requestTabsPanel">
+                        <div class="request-tab-item" data-tab="params">Params</div>
+                        <div class="request-tab-item active" data-tab="body">Body</div>
+                        <div class="request-tab-item" data-tab="headers">Headers</div>
+                        <div class="request-tab-item" data-tab="auth">Auth</div>
+                        <div class="request-tab-item" data-tab="vars">Vars</div>
+                        <div class="request-tab-item" data-tab="script">Script</div>
+                        <div class="request-tab-item" data-tab="assert">Assert</div>
+                        <div class="request-tab-item" data-tab="tests">Tests</div>
+                        <div class="request-tab-item" data-tab="docs">Docs</div>
+                        <div class="request-tab-item" data-tab="settings">Settings</div>
+                        <div class="request-tabs-more-dropdown">
+                            <button class="more-tabs-btn" id="requestMoreTabsBtn">⋯ More</button>
+                            <div class="request-tabs-more-menu" id="requestMoreTabsMenu">
+                                <!-- Dropdown items will be dynamically generated -->
+                            </div>
+                        </div>
+                        <div class="format-controls">
+                            <button class="format-btn active">JSON</button>
+                            <button class="format-btn">Prettify</button>
+                        </div>
+                    </div>
+
+                    <!-- Code Editor -->
+                    <div class="code-editor">
+                        <div class="editor-line">
+                            <span class="line-number">1</span>
+                            <span class="line-content">{</span>
+                        </div>
+                        <div class="editor-line">
+                            <span class="line-number">2</span>
+                            <span class="line-content">  <span class="json-key">"headers"</span>: { <span class="json-key">"content-type"</span>: <span class="json-string">"application/xml"</span> },</span>
+                        </div>
+                        <div class="editor-line">
+                            <span class="line-number">3</span>
+                            <span class="line-content">  <span class="json-key">"content"</span>: <span class="json-string">"&lt;library&gt;&lt;book id='bk101'&gt;&lt;title&gt;The Hitchhiker Guide to the Galaxy&lt;/title&gt;&lt;author&gt;Douglas Adams&lt;/author&gt;&lt;genre&gt;Science Fiction&lt;/genre&gt;&lt;price&gt;12.99&lt;/price&gt;&lt;publication_date&gt;1979-10-12&lt;/publication_date&gt;&lt;/book&gt;&lt;book id='bk102'&gt;&lt;title&gt;Pride and Prejudice&lt;/title&gt;&lt;author&gt;Jane Austen&lt;/author&gt;&lt;genre&gt;Romance&lt;/genre&gt;&lt;price&gt;9.50&lt;/price&gt;&lt;publication_date&gt;1813-01-28&lt;/publication_date&gt;&lt;/book&gt;&lt;/library&gt;"</span></span>
+                        </div>
+                        <div class="editor-line">
+                            <span class="line-number">4</span>
+                            <span class="line-content">}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Draggable Divider -->
+                <div class="divider" id="divider"></div>
+
+                <!-- Response Panel -->
+                <div class="response-panel" id="responsePanel">
+                    <!-- Response Header -->
+                    <div class="response-header">
+                        <div class="response-unified-bar" id="responseBar">
+                            <div class="response-tabs-container">
+                                <div class="response-tabs" id="responseTabs">
+                                    <div class="response-tab active" data-tab="response" data-short="Res"><span>Response</span></div>
+                                    <div class="response-tab" data-tab="headers" data-short="Hdr"><span>Headers</span><span class="tab-badge">8</span></div>
+                                    <div class="response-tab" data-tab="timeline" data-short="Time"><span>Timeline</span></div>
+                                    <div class="response-tab" data-tab="tests" data-short="Test"><span>Tests</span></div>
+                                </div>
+                                <div class="response-tabs-dropdown" id="responseTabsDropdown">
+                                    <button class="tabs-dropdown-btn" id="tabsDropdownBtn" title="More tabs">
+                                        <span>⋯</span>
+                                    </button>
+                                    <div class="tabs-dropdown-menu" id="tabsDropdownMenu">
+                                        <div class="dropdown-item" data-tab="response">Response</div>
+                                        <div class="dropdown-item" data-tab="headers">Headers <span class="tab-badge">8</span></div>
+                                        <div class="dropdown-item" data-tab="timeline">Timeline</div>
+                                        <div class="dropdown-item" data-tab="tests">Tests</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="response-stats">
+                                <span class="status-ok">200 OK</span>
+                                <span>1.17s</span>
+                                <span>393B</span>
+                            </div>
+                            <div class="response-controls">
+                                <div class="response-controls-main">
+                                    <button class="control-icon" id="fullscreenBtn" title="Switch to Vertical Layout">🧭</button>
+                                    <button class="control-icon" id="downloadBtn" title="Save Response to File">💾</button>
+                                    <button class="control-icon" id="copyBtn" title="Clear Response">🗑️</button>
+                                    <button class="control-icon" id="formatBtn" title="Save Response">💾</button>
+                                    <div class="response-controls-dropdown" id="responseControlsDropdown">
+                                        <button class="controls-dropdown-btn" id="controlsDropdownBtn" title="More options">
+                                            <span>⋯</span>
+                                        </button>
+                                        <div class="controls-dropdown-menu" id="controlsDropdownMenu">
+                                            <div class="dropdown-item" data-action="fullscreen">🧭 Switch to Vertical Layout</div>
+                                            <div class="dropdown-item" data-action="download">💾 Save Response to File</div>
+                                            <div class="dropdown-item" data-action="copy">🗑️ Clear Response</div>
+                                            <div class="dropdown-item" data-action="format">💾 Save Response</div>
+                                        </div>
+                                    </div>
+                                    <select class="format-select">
+                                        <option>XML</option>
+                                        <option>HTML</option>
+                                        <option>JSON</option>
+                                    </select>
+                                    
+                                    <button class="preview-btn" id="previewBtn">
+                                        <span class="preview-btn-text">▶ Preview</span>
+                                        <span class="preview-btn-icon">▶</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Response Content -->
+                    <div class="response-content code-mode" id="responseContent">
+                        <!-- Tree View (Code Mode Only) -->
+                        <div class="tree-view">
+                            <div class="tree-item">
+                                <span class="tree-icon">▾</span>
+                                <span>library</span>
+                                <span class="tree-count">{1}</span>
+                            </div>
+                            <div class="tree-item" style="padding-left: 20px;">
+                                <span class="tree-icon">▾</span>
+                                <span>book</span>
+                                <span class="tree-count">[2]</span>
+                            </div>
+                            <div class="tree-item" style="padding-left: 40px;">
+                                <span class="tree-icon">▸</span>
+                                <span>0</span>
+                                <span class="tree-count">{6}</span>
+                            </div>
+                            <div class="tree-item" style="padding-left: 40px;">
+                                <span class="tree-icon">▸</span>
+                                <span>1</span>
+                                <span class="tree-count">{6}</span>
+                            </div>
+                        </div>
+
+                        <!-- Code Editor (Code Mode Only) -->
+                        <div class="code-editor">
+                            <div class="editor-line">
+                                <span class="line-number">1</span>
+                                <span class="line-content"><span class="xml-tag">&lt;library&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">2</span>
+                                <span class="line-content">  <span class="xml-tag">&lt;book</span> <span class="xml-attr">id</span>=<span class="xml-string">"bk101"</span><span class="xml-tag">&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">3</span>
+                                <span class="line-content">    <span class="xml-tag">&lt;title&gt;</span><span class="xml-text">The Hitchhiker Guide to the Galaxy</span><span class="xml-tag">&lt;/title&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">4</span>
+                                <span class="line-content">    <span class="xml-tag">&lt;author&gt;</span><span class="xml-text">Douglas Adams</span><span class="xml-tag">&lt;/author&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">5</span>
+                                <span class="line-content">    <span class="xml-tag">&lt;genre&gt;</span><span class="xml-text">Science Fiction</span><span class="xml-tag">&lt;/genre&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">6</span>
+                                <span class="line-content">    <span class="xml-tag">&lt;price&gt;</span><span class="xml-text">12.99</span><span class="xml-tag">&lt;/price&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">7</span>
+                                <span class="line-content">    <span class="xml-tag">&lt;publication_date&gt;</span><span class="xml-text">1979-10-12</span><span class="xml-tag">&lt;/publication_date&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">8</span>
+                                <span class="line-content">  <span class="xml-tag">&lt;/book&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">9</span>
+                                <span class="line-content">  <span class="xml-tag">&lt;book</span> <span class="xml-attr">id</span>=<span class="xml-string">"bk102"</span><span class="xml-tag">&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">10</span>
+                                <span class="line-content">    <span class="xml-tag">&lt;title&gt;</span><span class="xml-text">Pride and Prejudice</span><span class="xml-tag">&lt;/title&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">11</span>
+                                <span class="line-content">    <span class="xml-tag">&lt;author&gt;</span><span class="xml-text">Jane Austen</span><span class="xml-tag">&lt;/author&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">12</span>
+                                <span class="line-content">    <span class="xml-tag">&lt;genre&gt;</span><span class="xml-text">Romance</span><span class="xml-tag">&lt;/genre&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">13</span>
+                                <span class="line-content">    <span class="xml-tag">&lt;price&gt;</span><span class="xml-text">9.50</span><span class="xml-tag">&lt;/price&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">14</span>
+                                <span class="line-content">    <span class="xml-tag">&lt;publication_date&gt;</span><span class="xml-text">1813-01-28</span><span class="xml-tag">&lt;/publication_date&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">15</span>
+                                <span class="line-content">  <span class="xml-tag">&lt;/book&gt;</span></span>
+                            </div>
+                            <div class="editor-line">
+                                <span class="line-number">16</span>
+                                <span class="line-content"><span class="xml-tag">&lt;/library&gt;</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Preview Container (Preview Mode Only) -->
+                        <div class="preview-container">
+                            <h2 style="margin-bottom: 20px; color: #1e1e1e; font-size: 20px;">Library Books</h2>
+                            <table class="preview-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>Genre</th>
+                                        <th>Price</th>
+                                        <th>Publication Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>bk101</td>
+                                        <td>The Hitchhiker Guide to the Galaxy</td>
+                                        <td>Douglas Adams</td>
+                                        <td>Science Fiction</td>
+                                        <td>$12.99</td>
+                                        <td>1979-10-12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>bk102</td>
+                                        <td>Pride and Prejudice</td>
+                                        <td>Jane Austen</td>
+                                        <td>Romance</td>
+                                        <td>$9.50</td>
+                                        <td>1813-01-28</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Panel -->
+        <div class="bottom-panel-container" id="bottomPanelContainer">
+            <div class="bottom-panel-resizer" id="bottomPanelResizer"></div>
+            <div class="bottom-panel" id="bottomPanel">
+                <div class="bottom-panel-left">
+                    <button class="bottom-panel-item">Cookies</button>
+                    <button class="bottom-panel-item">Search</button>
+                    <button class="bottom-panel-item active">Dev Tools</button>
+                </div>
+                <div class="bottom-panel-separator"></div>
+                <div class="bottom-panel-right">
+                    <button class="bottom-panel-icon" id="sidenavCollapseBtn" title="Collapse Sidebar">◀</button>
+                    <button class="bottom-panel-icon" id="settingsBtn" title="Settings">⚙</button>
+                    <button class="bottom-panel-icon" id="licenseBtn" title="License">🔑</button>
+                    <button class="bottom-panel-icon" id="notificationsBtn" title="Notifications">🔔</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
