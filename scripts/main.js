@@ -166,38 +166,118 @@
     }
 
     // ============================================
-    // Preview Toggle Logic
+    // Format Dropdown Logic
     // ============================================
-    const previewBtn = document.getElementById('previewBtn');
+    const formatDropdownBtn = document.getElementById('formatDropdownBtn');
+    const formatDropdownMenu = document.getElementById('formatDropdownMenu');
+    const formatDropdownText = document.getElementById('formatDropdownText');
+    const formatPreviewToggle = document.getElementById('formatPreviewToggle');
     const responseContent = document.getElementById('responseContent');
+    let currentFormat = 'xml';
     let isPreviewMode = false;
 
-    if (previewBtn && responseContent) {
-        const previewBtnText = previewBtn.querySelector('.preview-btn-text');
-        const previewBtnIcon = previewBtn.querySelector('.preview-btn-icon');
+    // Format name mapping for display
+    const formatNames = {
+        'json': 'JSON',
+        'xml': 'XML',
+        'javascript': 'Javascript',
+        'html': 'HTML',
+        'raw': 'Raw',
+        'hex': 'Hex',
+        'base64': 'Base64'
+    };
+
+    function updateFormatDisplay() {
+        if (formatDropdownText) {
+            const formatName = formatNames[currentFormat] || currentFormat.toUpperCase();
+            if (isPreviewMode) {
+                formatDropdownText.innerHTML = `${formatName} <span><i class="ti ti-eye"></i></span>`;
+            } else {
+                formatDropdownText.textContent = formatName;
+            }
+        }
         
-        previewBtn.addEventListener('click', () => {
-            isPreviewMode = !isPreviewMode;
-            
+        if (responseContent) {
             if (isPreviewMode) {
                 responseContent.classList.remove('code-mode');
                 responseContent.classList.add('preview-mode');
-                if (previewBtnText) previewBtnText.textContent = '</> Code';
-                if (previewBtnIcon) previewBtnIcon.textContent = '</>';
-                previewBtn.style.background = 'none';
-                previewBtn.style.borderColor = '#3e3e42';
-                previewBtn.style.color = '#d4d4d4';
             } else {
                 responseContent.classList.remove('preview-mode');
                 responseContent.classList.add('code-mode');
-                if (previewBtnText) previewBtnText.textContent = '▶ Preview';
-                if (previewBtnIcon) previewBtnIcon.textContent = '▶';
-                previewBtn.style.background = 'none';
-                previewBtn.style.borderColor = '#3e3e42';
-                previewBtn.style.color = '#d4d4d4';
+            }
+        }
+
+        // Update preview toggle state
+        if (formatPreviewToggle) {
+            if (isPreviewMode) {
+                formatPreviewToggle.classList.add('active');
+            } else {
+                formatPreviewToggle.classList.remove('active');
+            }
+        }
+
+        // Update active format in dropdown
+        if (formatDropdownMenu) {
+            const formatItems = formatDropdownMenu.querySelectorAll('.format-item');
+            formatItems.forEach(item => {
+                const itemFormat = item.getAttribute('data-format');
+                if (itemFormat === currentFormat) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    // Format dropdown toggle
+    if (formatDropdownBtn && formatDropdownMenu) {
+        formatDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = formatDropdownMenu.classList.toggle('show');
+            formatDropdownBtn.classList.toggle('active', isOpen);
+            
+            // Close other dropdowns if open
+            const tabsDropdownMenu = document.getElementById('tabsDropdownMenu');
+            const controlsDropdownMenu = document.getElementById('controlsDropdownMenu');
+            if (tabsDropdownMenu) {
+                tabsDropdownMenu.classList.remove('show');
+                const tabsDropdownBtn = document.getElementById('tabsDropdownBtn');
+                if (tabsDropdownBtn) tabsDropdownBtn.classList.remove('active');
+            }
+            if (controlsDropdownMenu) {
+                controlsDropdownMenu.classList.remove('show');
+                const controlsDropdownBtn = document.getElementById('controlsDropdownBtn');
+                if (controlsDropdownBtn) controlsDropdownBtn.classList.remove('active');
             }
         });
+
+        // Format selection from dropdown
+        const formatItems = formatDropdownMenu.querySelectorAll('.format-item');
+        formatItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const format = item.getAttribute('data-format');
+                if (format) {
+                    currentFormat = format;
+                    updateFormatDisplay();
+                }
+                // Don't close dropdown - allow toggling preview
+            });
+        });
+
+        // Preview toggle in header
+        if (formatPreviewToggle) {
+            formatPreviewToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                isPreviewMode = !isPreviewMode;
+                updateFormatDisplay();
+            });
+        }
     }
+
+    // Initialize format display
+    updateFormatDisplay();
 
     // ============================================
     // Responsive Tabs Logic
@@ -633,7 +713,7 @@
             sidebarExpandBtn.style.display = 'block';
         }
         if (sidebarCollapseBtn) {
-            sidebarCollapseBtn.textContent = '▶';
+            sidebarCollapseBtn.innerHTML = '<i class="ti ti-chevron-right"></i>';
             sidebarCollapseBtn.title = 'Expand Sidebar';
         }
     }
@@ -646,7 +726,7 @@
             sidebarExpandBtn.style.display = 'none';
         }
         if (sidebarCollapseBtn) {
-            sidebarCollapseBtn.textContent = '◀';
+            sidebarCollapseBtn.innerHTML = '<i class="ti ti-chevron-left"></i>';
             sidebarCollapseBtn.title = 'Collapse Sidebar';
         }
     }
@@ -833,6 +913,12 @@
             controlsDropdownMenu.classList.remove('show');
             if (controlsDropdownBtn) {
                 controlsDropdownBtn.classList.remove('active');
+            }
+        }
+        if (formatDropdownMenu && !formatDropdownMenu.contains(e.target) && !formatDropdownBtn?.contains(e.target)) {
+            formatDropdownMenu.classList.remove('show');
+            if (formatDropdownBtn) {
+                formatDropdownBtn.classList.remove('active');
             }
         }
     });

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bruno - Complete UI Redesign</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -11,20 +12,20 @@
     <div class="top-bar">
         <div class="top-bar-left">
             <div class="logo">
-                <div class="logo-icon">🔥</div>
+                <div class="logo-icon"><i class="ti ti-flame"></i></div>
                 <span>bruno</span>
             </div>
-            <button class="menu-btn">⋯</button>
+            <button class="menu-btn"><i class="ti ti-dots"></i></button>
             <div class="collection-name">
-                <span>📄</span>
+                <span><i class="ti ti-file-text"></i></span>
                 <span>response-data-selector</span>
             </div>
         </div>
         <div class="top-bar-right">
             <button class="safe-mode">Safe Mode</button>
-            <button class="icon-btn">🏃</button>
-            <button class="icon-btn">👁</button>
-            <button class="icon-btn">⚙</button>
+            <button class="icon-btn"><i class="ti ti-player-play"></i></button>
+            <button class="icon-btn"><i class="ti ti-eye"></i></button>
+            <button class="icon-btn"><i class="ti ti-settings"></i></button>
             <select class="env-selector">
                 <option>No environments</option>
             </select>
@@ -41,22 +42,22 @@
                         <button class="sidebar-tab active" data-view="collections">Collections</button>
                         <button class="sidebar-tab" data-view="history">History</button>
                     </div>
-                    <button class="icon-btn" id="sidebarCollapseBtn" title="Collapse Sidebar">◀</button>
+                    <button class="icon-btn" id="sidebarCollapseBtn" title="Collapse Sidebar"><i class="ti ti-chevron-left"></i></button>
                 </div>
                 <div class="search-box">
                     <input type="text" class="search-input" id="sidebarSearchInput" placeholder="Search requests ...">
                 </div>
                 <!-- Collections View -->
                 <div class="collections-list" id="collectionsView">
-                    <div class="collection-item">▸ Bruno-To-Postman-T...</div>
-                    <div class="collection-item">▸ Grpcbin</div>
-                    <div class="collection-item">▸ gPRC - WS folder co...</div>
-                    <div class="collection-item">▸ collection</div>
-                    <div class="collection-item">▸ GitHub REST API</div>
-                    <div class="collection-item">▸ Test for Bruno</div>
-                    <div class="collection-item">▸ bruno-testbench</div>
-                    <div class="collection-item">▸ Script and Tests Coll...</div>
-                    <div class="collection-item active">▾ response-data-selec...</div>
+                    <div class="collection-item"><i class="ti ti-chevron-right"></i> Bruno-To-Postman-T...</div>
+                    <div class="collection-item"><i class="ti ti-chevron-right"></i> Grpcbin</div>
+                    <div class="collection-item"><i class="ti ti-chevron-right"></i> gPRC - WS folder co...</div>
+                    <div class="collection-item"><i class="ti ti-chevron-right"></i> collection</div>
+                    <div class="collection-item"><i class="ti ti-chevron-right"></i> GitHub REST API</div>
+                    <div class="collection-item"><i class="ti ti-chevron-right"></i> Test for Bruno</div>
+                    <div class="collection-item"><i class="ti ti-chevron-right"></i> bruno-testbench</div>
+                    <div class="collection-item"><i class="ti ti-chevron-right"></i> Script and Tests Coll...</div>
+                    <div class="collection-item active"><i class="ti ti-chevron-down"></i> response-data-selec...</div>
                     <div class="collection-item" style="padding-left: 24px;">
                         <span class="method-badge method-get">GET</span>
                         users
@@ -81,7 +82,7 @@
                         <span class="method-badge method-post">POST</span>
                         request-xml
                     </div>
-                    <div class="collection-item">▸ delete-resequencing</div>
+                    <div class="collection-item"><i class="ti ti-chevron-right"></i> delete-resequencing</div>
                 </div>
                 <!-- History View -->
                 <div class="history-list" id="historyView" style="display: none;">
@@ -154,23 +155,23 @@
         <div class="content-area">
             <!-- Request Tabs -->
             <div class="request-tabs">
-                <button class="sidebar-expand-btn" id="sidebarExpandBtn" title="Expand Sidebar" style="display: none;">▶</button>
+                <button class="sidebar-expand-btn" id="sidebarExpandBtn" title="Expand Sidebar" style="display: none;"><i class="ti ti-chevron-right"></i></button>
                 <button class="request-tab">
                     <span class="tab-method method-post">POST</span>
                     <span class="tab-name">request-...</span>
-                    <button class="tab-close">×</button>
+                    <button class="tab-close"><i class="ti ti-x"></i></button>
                 </button>
                 <button class="request-tab">
                     <span class="tab-method method-post">POST</span>
                     <span class="tab-name">html</span>
-                    <button class="tab-close">×</button>
+                    <button class="tab-close"><i class="ti ti-x"></i></button>
                 </button>
                 <button class="request-tab active">
                     <span class="tab-method method-get">GET</span>
                     <span class="tab-name">javascript</span>
-                    <button class="tab-close">×</button>
+                    <button class="tab-close"><i class="ti ti-x"></i></button>
                 </button>
-                <button class="tab-add">+</button>
+                <button class="tab-add"><i class="ti ti-plus"></i></button>
             </div>
 
             <!-- Request/Response Split -->
@@ -188,8 +189,8 @@
                         </select>
                         <input type="text" class="url-input" value="https://www.httpfaker.org/api/echo/custom">
                         <div class="action-btns">
-                            <button class="action-btn">⚙</button>
-                            <button class="action-btn">📄</button>
+                            <button class="action-btn"><i class="ti ti-settings"></i></button>
+                            <button class="action-btn"><i class="ti ti-file-text"></i></button>
                         </div>
                         <button class="send-btn">Send</button>
                     </div>
@@ -207,7 +208,7 @@
                         <div class="request-tab-item" data-tab="docs">Docs</div>
                         <div class="request-tab-item" data-tab="settings">Settings</div>
                         <div class="request-tabs-more-dropdown">
-                            <button class="more-tabs-btn" id="requestMoreTabsBtn">⋯ More</button>
+                            <button class="more-tabs-btn" id="requestMoreTabsBtn"><i class="ti ti-dots"></i> More</button>
                             <div class="request-tabs-more-menu" id="requestMoreTabsMenu">
                                 <!-- Dropdown items will be dynamically generated -->
                             </div>
@@ -256,7 +257,7 @@
                                 </div>
                                 <div class="response-tabs-dropdown" id="responseTabsDropdown">
                                     <button class="tabs-dropdown-btn" id="tabsDropdownBtn" title="More tabs">
-                                        <span>⋯</span>
+                                        <i class="ti ti-dots"></i>
                                     </button>
                                     <div class="tabs-dropdown-menu" id="tabsDropdownMenu">
                                         <div class="dropdown-item" data-tab="response">Response</div>
@@ -274,31 +275,42 @@
                             </div>
                             <div class="response-controls">
                                 <div class="response-controls-main">
-                                    <button class="control-icon" id="fullscreenBtn" title="Switch to Vertical Layout">🧭</button>
-                                    <button class="control-icon" id="downloadBtn" title="Save Response to File">💾</button>
-                                    <button class="control-icon" id="copyBtn" title="Clear Response">🗑️</button>
-                                    <button class="control-icon" id="formatBtn" title="Save Response">💾</button>
+                                    <button class="control-icon" id="fullscreenBtn" title="Switch to Vertical Layout"><i class="ti ti-layout-split"></i></button>
+                                    <button class="control-icon" id="downloadBtn" title="Donwload Response"><i class="ti ti-download"></i></button>
+                                    <button class="control-icon" id="copyBtn" title="Clear Response"><i class="ti ti-trash"></i></button>
+                                    <button class="control-icon" id="formatBtn" title="Save Response"><i class="ti ti-device-floppy"></i></button>
                                     <div class="response-controls-dropdown" id="responseControlsDropdown">
                                         <button class="controls-dropdown-btn" id="controlsDropdownBtn" title="More options">
-                                            <span>⋯</span>
+                                            <i class="ti ti-dots"></i>
                                         </button>
                                         <div class="controls-dropdown-menu" id="controlsDropdownMenu">
-                                            <div class="dropdown-item" data-action="fullscreen">🧭 Switch to Vertical Layout</div>
-                                            <div class="dropdown-item" data-action="download">💾 Save Response to File</div>
-                                            <div class="dropdown-item" data-action="copy">🗑️ Clear Response</div>
-                                            <div class="dropdown-item" data-action="format">💾 Save Response</div>
+                                            <div class="dropdown-item" data-action="fullscreen"><i class="ti ti-layout-split"></i> Switch to Vertical Layout</div>
+                                            <div class="dropdown-item" data-action="download"><i class="ti ti-download"></i> Download Response</div>
+                                            <div class="dropdown-item" data-action="copy"><i class="ti ti-trash"></i> Clear Response</div>
+                                            <div class="dropdown-item" data-action="format"><i class="ti ti-device-floppy"></i> Save Response</div>
                                         </div>
                                     </div>
-                                    <select class="format-select">
-                                        <option>XML</option>
-                                        <option>HTML</option>
-                                        <option>JSON</option>
-                                    </select>
-                                    
-                                    <button class="preview-btn" id="previewBtn">
-                                        <span class="preview-btn-text">▶ Preview</span>
-                                        <span class="preview-btn-icon">▶</span>
-                                    </button>
+                                    <div class="format-dropdown" id="formatDropdown">
+                                        <button class="format-dropdown-btn" id="formatDropdownBtn">
+                                            <span id="formatDropdownText">XML</span>
+                                        </button>
+                                        <div class="format-dropdown-menu" id="formatDropdownMenu">
+                                            <div class="format-dropdown-header">
+                                                <span class="format-header-label">Preview</span>
+                                                <button class="format-preview-toggle" id="formatPreviewToggle" title="Toggle Preview">
+                                                    <span class="preview-toggle-switch"></span>
+                                                </button>
+                                            </div>
+                                            <div class="dropdown-divider"></div>
+                                            <div class="format-item" data-format="json">JSON</div>
+                                            <div class="format-item" data-format="xml">XML</div>
+                                            <div class="format-item" data-format="javascript">Javascript</div>
+                                            <div class="format-item" data-format="html">HTML</div>
+                                            <div class="format-item" data-format="raw">Raw</div>
+                                            <div class="format-item" data-format="hex">Hex</div>
+                                            <div class="format-item" data-format="base64">Base64</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -309,22 +321,22 @@
                         <!-- Tree View (Code Mode Only) -->
                         <div class="tree-view">
                             <div class="tree-item">
-                                <span class="tree-icon">▾</span>
+                                <span class="tree-icon"><i class="ti ti-chevron-down"></i></span>
                                 <span>library</span>
                                 <span class="tree-count">{1}</span>
                             </div>
                             <div class="tree-item" style="padding-left: 20px;">
-                                <span class="tree-icon">▾</span>
+                                <span class="tree-icon"><i class="ti ti-chevron-down"></i></span>
                                 <span>book</span>
                                 <span class="tree-count">[2]</span>
                             </div>
                             <div class="tree-item" style="padding-left: 40px;">
-                                <span class="tree-icon">▸</span>
+                                <span class="tree-icon"><i class="ti ti-chevron-right"></i></span>
                                 <span>0</span>
                                 <span class="tree-count">{6}</span>
                             </div>
                             <div class="tree-item" style="padding-left: 40px;">
-                                <span class="tree-icon">▸</span>
+                                <span class="tree-icon"><i class="ti ti-chevron-right"></i></span>
                                 <span>1</span>
                                 <span class="tree-count">{6}</span>
                             </div>
@@ -448,10 +460,10 @@
                 </div>
                 <div class="bottom-panel-separator"></div>
                 <div class="bottom-panel-right">
-                    <button class="bottom-panel-icon" id="sidenavCollapseBtn" title="Collapse Sidebar">◀</button>
-                    <button class="bottom-panel-icon" id="settingsBtn" title="Settings">⚙</button>
-                    <button class="bottom-panel-icon" id="licenseBtn" title="License">🔑</button>
-                    <button class="bottom-panel-icon" id="notificationsBtn" title="Notifications">🔔</button>
+                    <button class="bottom-panel-icon" id="sidenavCollapseBtn" title="Collapse Sidebar"><i class="ti ti-chevron-left"></i></button>
+                    <button class="bottom-panel-icon" id="settingsBtn" title="Settings"><i class="ti ti-settings"></i></button>
+                    <button class="bottom-panel-icon" id="licenseBtn" title="License"><i class="ti ti-key"></i></button>
+                    <button class="bottom-panel-icon" id="notificationsBtn" title="Notifications"><i class="ti ti-bell"></i></button>
                 </div>
             </div>
         </div>

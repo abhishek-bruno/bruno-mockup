@@ -11,6 +11,16 @@
     box-sizing: border-box;
 }
 
+/* Tabler Icons Base Styles */
+.ti {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 1.5;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background: #1e1e1e;
@@ -58,6 +68,12 @@ body {
     color: white;
 }
 
+.logo-icon .ti {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+}
+
 .menu-btn {
     background: none;
     border: none;
@@ -66,6 +82,14 @@ body {
     padding: 6px;
     border-radius: 4px;
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-btn .ti {
+    width: 18px;
+    height: 18px;
 }
 
 .menu-btn:hover {
@@ -79,6 +103,11 @@ body {
     gap: 8px;
     color: #d4d4d4;
     font-size: 13px;
+}
+
+.collection-name .ti {
+    width: 14px;
+    height: 14px;
 }
 
 .top-bar-right {
@@ -105,6 +134,14 @@ body {
     padding: 6px;
     border-radius: 4px;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn .ti {
+    width: 16px;
+    height: 16px;
 }
 
 .icon-btn:hover {
@@ -278,6 +315,12 @@ body {
     align-items: center;
     gap: 6px;
     color: #d4d4d4;
+}
+
+.collection-item .ti {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
 }
 
 .collection-item:hover {
@@ -462,6 +505,14 @@ body {
     border-radius: 3px;
     font-size: 14px;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-close .ti {
+    width: 14px;
+    height: 14px;
 }
 
 .tab-close:hover {
@@ -478,6 +529,14 @@ body {
     border-radius: 4px;
     font-size: 18px;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-add .ti {
+    width: 18px;
+    height: 18px;
 }
 
 .tab-add:hover {
@@ -727,6 +786,14 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn .ti {
+    width: 14px;
+    height: 14px;
 }
 
 .action-btn:hover {
@@ -858,6 +925,14 @@ body {
     cursor: pointer;
     font-size: 12px;
     transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.more-tabs-btn .ti {
+    width: 14px;
+    height: 14px;
 }
 
 .more-tabs-btn:hover {
@@ -995,6 +1070,11 @@ body {
     height: 28px;
 }
 
+.tabs-dropdown-btn .ti {
+    width: 16px;
+    height: 16px;
+}
+
 .tabs-dropdown-btn:hover {
     background: #3e3e42;
     border-color: #f97316;
@@ -1037,6 +1117,12 @@ body {
     justify-content: space-between;
     gap: 8px;
     transition: background 0.2s;
+}
+
+.dropdown-item .ti {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
 }
 
 .dropdown-item:hover {
@@ -1146,6 +1232,11 @@ body {
     height: 28px;
 }
 
+.controls-dropdown-btn .ti {
+    width: 16px;
+    height: 16px;
+}
+
 .controls-dropdown-btn:hover {
     background: #3e3e42;
     border-color: #f97316;
@@ -1193,12 +1284,22 @@ body {
     font-size: 14px;
 }
 
+.control-icon .ti {
+    width: 16px;
+    height: 16px;
+}
+
 .control-icon:hover {
     background: #3e3e42;
     color: #d4d4d4;
 }
 
-.format-select {
+.format-dropdown {
+    position: relative;
+    overflow: visible;
+}
+
+.format-dropdown-btn {
     background: none;
     border: 1px solid #3e3e42;
     color: #f97316;
@@ -1206,17 +1307,133 @@ body {
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
-    appearance: none;
+    transition: all 0.2s;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%23f97316' d='M5 7L2 3h6z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 6px center;
-    transition: all 0.2s;
-    min-width: 60px;
 }
 
-.format-select:hover {
+.format-dropdown-btn #formatDropdownText {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.format-dropdown-btn #formatDropdownText .ti {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.format-dropdown-btn:hover {
     border-color: #f97316;
     background-color: rgba(249, 115, 22, 0.1);
+}
+
+.format-dropdown-btn.active {
+    background-color: rgba(249, 115, 22, 0.1);
+    border-color: #f97316;
+}
+
+.format-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 4px;
+    background: #252526;
+    border: 1px solid #3e3e42;
+    border-radius: 6px;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    padding: 4px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.format-dropdown-menu.show {
+    display: block;
+}
+
+.format-dropdown-header {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid #3e3e42;
+    margin-bottom: 4px;
+}
+
+.format-header-label {
+    font-size: 13px;
+    color: #d4d4d4;
+    font-weight: 500;
+}
+
+.format-preview-toggle {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background: #3e3e42;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.format-preview-toggle:hover {
+    background: #4e4e52;
+}
+
+.format-preview-toggle.active {
+    background: #f97316;
+}
+
+.format-preview-toggle.active:hover {
+    background: #ea680f;
+}
+
+.preview-toggle-switch {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: #d4d4d4;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.format-preview-toggle.active .preview-toggle-switch {
+    transform: translateX(20px);
+    background: white;
+}
+
+.format-item {
+    padding: 8px 12px;
+    color: #d4d4d4;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.format-item:hover {
+    background: #2d2d30;
+}
+
+.format-item.active {
+    background: rgba(249, 115, 22, 0.1);
+    color: #f97316;
+    font-weight: 500;
 }
 
 .preview-btn {
@@ -1323,7 +1540,7 @@ body {
     font-size: 12px;
 }
 
-.response-unified-bar.ultra-compact .format-select {
+.response-unified-bar.ultra-compact .format-dropdown-btn {
     font-size: 11px;
     padding: 3px 20px 3px 6px;
     min-width: 50px;
@@ -1340,10 +1557,7 @@ body {
 }
 
 /* Hide less important controls in narrow mode - now handled by dropdown */
-.response-unified-bar.ultra-compact .response-controls-main .control-icon,
-.response-unified-bar.ultra-compact .response-controls-main .format-select {
-    /* These will be hidden by JavaScript when needed */
-}
+/* Control icons are hidden by JavaScript when needed */
 
 /* ============================================
    Response Tree View
@@ -1356,6 +1570,17 @@ body {
 
 .tree-view {
     display: none; /* Tree view removed as per requirement */
+}
+
+.tree-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tree-icon .ti {
+    width: 12px;
+    height: 12px;
 }
 
 /* Preview/Code Toggle States */
@@ -1538,6 +1763,11 @@ body {
     justify-content: center;
     transition: all 0.2s;
     position: relative;
+}
+
+.bottom-panel-icon .ti {
+    width: 16px;
+    height: 16px;
 }
 
 .bottom-panel-icon:hover {
