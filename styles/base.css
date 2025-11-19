@@ -1,0 +1,172 @@
+/* ============================================
+   Bruno UI - Base Styles
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tabler Icons Base Styles */
+.ti {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 1.5;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   Theme Variables - Dark Mode (Default)
+   ============================================ */
+:root {
+    /* Background Colors */
+    --bg-primary: #1e1e1e;
+    --bg-secondary: #252526;
+    --bg-tertiary: #2d2d30;
+    --bg-hover: #2d2d30;
+    --bg-active: #37373d;
+    --bg-input: #1e1e1e;
+    
+    /* Border Colors */
+    --border-primary: #3e3e42;
+    --border-secondary: #4e4e52;
+    --border-hover: #4e4e52;
+    
+    /* Text Colors */
+    --text-primary: #d4d4d4;
+    --text-secondary: #888;
+    --text-tertiary: #666;
+    --text-muted: #858585;
+    
+    /* Accent Colors */
+    --accent-primary: #f97316;
+    --accent-primary-hover: #ea680f;
+    --accent-primary-bg: rgba(249, 115, 22, 0.1);
+    
+    /* Status Colors */
+    --status-success: #4ade80;
+    --status-success-bg: rgba(74, 222, 128, 0.1);
+    --status-info: #3b82f6;
+    --status-info-bg: rgba(59, 130, 246, 0.1);
+    --status-error: #ef4444;
+    --status-error-bg: rgba(239, 68, 68, 0.1);
+    --status-warning: #8b5cf6;
+    --status-warning-bg: rgba(139, 92, 246, 0.1);
+    
+    /* Code Editor Colors */
+    --code-bg: #1e1e1e;
+    --code-line-number: #858585;
+    --code-text: #d4d4d4;
+    --code-key: #9cdcfe;
+    --code-string: #ce9178;
+    --code-value: #b5cea8;
+    --code-tag: #569cd6;
+    --code-attr: #9cdcfe;
+    
+    /* Preview Colors */
+    --preview-bg: white;
+    --preview-text: #1e1e1e;
+    --preview-table-header: #f3f4f6;
+    --preview-table-border: #e5e7eb;
+    --preview-table-hover: #f9fafb;
+    
+    /* Scrollbar */
+    --scrollbar-track: #1e1e1e;
+    --scrollbar-thumb: #3e3e42;
+    --scrollbar-thumb-hover: #4e4e52;
+}
+
+/* ============================================
+   Theme Variables - Light Mode
+   ============================================ */
+:root[data-theme="light"] {
+    /* Background Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #e8e8e8;
+    --bg-hover: #e8e8e8;
+    --bg-active: #d4d4d4;
+    --bg-input: #ffffff;
+    
+    /* Border Colors */
+    --border-primary: #d1d1d1;
+    --border-secondary: #b8b8b8;
+    --border-hover: #a0a0a0;
+    
+    /* Text Colors */
+    --text-primary: #1e1e1e;
+    --text-secondary: #666666;
+    --text-tertiary: #888888;
+    --text-muted: #999999;
+    
+    /* Accent Colors */
+    --accent-primary: #f97316;
+    --accent-primary-hover: #ea680f;
+    --accent-primary-bg: rgba(249, 115, 22, 0.1);
+    
+    /* Status Colors */
+    --status-success: #16a34a;
+    --status-success-bg: rgba(22, 163, 74, 0.1);
+    --status-info: #2563eb;
+    --status-info-bg: rgba(37, 99, 235, 0.1);
+    --status-error: #dc2626;
+    --status-error-bg: rgba(220, 38, 38, 0.1);
+    --status-warning: #9333ea;
+    --status-warning-bg: rgba(147, 51, 234, 0.1);
+    
+    /* Code Editor Colors */
+    --code-bg: #ffffff;
+    --code-line-number: #999999;
+    --code-text: #1e1e1e;
+    --code-key: #0066cc;
+    --code-string: #008000;
+    --code-value: #0000ff;
+    --code-tag: #0066cc;
+    --code-attr: #0066cc;
+    
+    /* Preview Colors */
+    --preview-bg: white;
+    --preview-text: #1e1e1e;
+    --preview-table-header: #f3f4f6;
+    --preview-table-border: #e5e7eb;
+    --preview-table-hover: #f9fafb;
+    
+    /* Scrollbar */
+    --scrollbar-track: #f5f5f5;
+    --scrollbar-thumb: #d1d1d1;
+    --scrollbar-thumb-hover: #b8b8b8;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================
+   Scrollbar Styling
+   ============================================ */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+

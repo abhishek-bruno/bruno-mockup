@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bruno - Complete UI Redesign</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/topbar.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/request.css">
+    <link rel="stylesheet" href="styles/response.css">
+    <link rel="stylesheet" href="styles/bottom-panel.css">
+    <link rel="stylesheet" href="styles/responsive.css">
 </head>
 <body>
     <!-- Top Bar -->
@@ -460,6 +467,7 @@
                 </div>
                 <div class="bottom-panel-separator"></div>
                 <div class="bottom-panel-right">
+                    <button class="bottom-panel-icon" id="themeToggleBtn" title="Toggle Theme"><i class="ti ti-sun" id="themeIcon"></i></button>
                     <button class="bottom-panel-icon" id="sidenavCollapseBtn" title="Collapse Sidebar"><i class="ti ti-chevron-left"></i></button>
                     <button class="bottom-panel-icon" id="settingsBtn" title="Settings"><i class="ti ti-settings"></i></button>
                     <button class="bottom-panel-icon" id="licenseBtn" title="License"><i class="ti ti-key"></i></button>
@@ -469,6 +477,12 @@
         </div>
     </div>
 
-    <script src="scripts/main.js"></script>
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/divider.js"></script>
+    <script src="scripts/format.js"></script>
+    <script src="scripts/responsive.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/bottom-panel.js"></script>
+    <script src="scripts/dropdowns.js"></script>
 </body>
 </html>

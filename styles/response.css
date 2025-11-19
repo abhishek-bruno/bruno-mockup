@@ -1,0 +1,602 @@
+/* ============================================
+   Bruno UI - Response Panel Styles
+   ============================================ */
+
+.response-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    min-width: 300px;
+    transition: flex 0.2s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.response-panel.minimized {
+    min-width: 40px;
+    max-width: 40px;
+    flex: 0 0 40px !important;
+    cursor: pointer;
+    overflow: visible;
+}
+
+.response-panel.minimized > * {
+    display: none;
+}
+
+.response-panel.minimized::after {
+    content: 'Response';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    white-space: nowrap;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: color 0.2s;
+}
+
+.response-panel.minimized:hover::after {
+    color: var(--accent-primary);
+}
+
+.response-panel.minimized::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--border-primary);
+    pointer-events: none;
+}
+
+.response-panel.minimized:hover::before {
+    background: var(--accent-primary);
+}
+
+.response-header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-primary);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.response-unified-bar {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 40px;
+    gap: 16px;
+    overflow: visible;
+}
+
+.response-tabs-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    position: relative;
+    min-width: 0;
+    overflow: visible;
+}
+
+.response-tabs {
+    display: flex;
+    gap: 20px;
+    flex: 0 0 auto;
+    overflow: hidden;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.response-tabs-dropdown {
+    display: none;
+    position: relative;
+    overflow: visible;
+}
+
+.response-tabs-dropdown.visible {
+    display: block;
+}
+
+.tabs-dropdown-btn {
+    background: none;
+    border: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 28px;
+}
+
+.tabs-dropdown-btn .ti {
+    width: 16px;
+    height: 16px;
+}
+
+.tabs-dropdown-btn:hover {
+    background: var(--border-primary);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.tabs-dropdown-btn.active {
+    background: var(--accent-primary-bg);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.tabs-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 4px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    min-width: 150px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    padding: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.tabs-dropdown-menu.show {
+    display: block;
+}
+
+.response-tab {
+    color: var(--text-secondary);
+    padding: 10px 0;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    font-size: 13px;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.response-tab:hover {
+    color: var(--text-primary);
+}
+
+.response-tab.active {
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
+}
+
+.tab-badge {
+    background: var(--border-primary);
+    color: var(--text-secondary);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 10px;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.response-stats {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.status-ok {
+    color: var(--status-success);
+    font-weight: 500;
+}
+
+.response-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 16px;
+    border-left: 1px solid var(--border-primary);
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.response-controls-main {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.response-controls-dropdown {
+    display: block;
+    position: relative;
+    overflow: visible;
+}
+
+.controls-dropdown-btn {
+    background: none;
+    border: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 28px;
+}
+
+.controls-dropdown-btn .ti {
+    width: 16px;
+    height: 16px;
+}
+
+.controls-dropdown-btn:hover {
+    background: var(--border-primary);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.controls-dropdown-btn.active {
+    background: var(--accent-primary-bg);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.controls-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 4px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    padding: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.controls-dropdown-menu.show {
+    display: block;
+}
+
+.control-icon {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+.control-icon .ti {
+    width: 16px;
+    height: 16px;
+}
+
+.control-icon:hover {
+    background: var(--border-primary);
+    color: var(--text-primary);
+}
+
+.format-dropdown {
+    position: relative;
+    overflow: visible;
+}
+
+.format-dropdown-btn {
+    background: none;
+    border: 1px solid var(--border-primary);
+    color: var(--accent-primary);
+    padding: 4px 24px 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%23f97316' d='M5 7L2 3h6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 6px center;
+}
+
+.format-dropdown-btn #formatDropdownText {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.format-dropdown-btn #formatDropdownText .ti {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.format-dropdown-btn:hover {
+    border-color: var(--accent-primary);
+    background-color: var(--accent-primary-bg);
+}
+
+.format-dropdown-btn.active {
+    background-color: var(--accent-primary-bg);
+    border-color: var(--accent-primary);
+}
+
+.format-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 4px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    padding: 4px;
+    max-height: 400px;
+    overflow-y: auto;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.format-dropdown-menu.show {
+    display: block;
+}
+
+.format-dropdown-header {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid var(--border-primary);
+    margin-bottom: 4px;
+}
+
+.format-header-label {
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.format-preview-toggle {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background: var(--border-primary);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.format-preview-toggle:hover {
+    background: var(--border-secondary);
+}
+
+.format-preview-toggle.active {
+    background: var(--accent-primary);
+}
+
+.format-preview-toggle.active:hover {
+    background: var(--accent-primary-hover);
+}
+
+.preview-toggle-switch {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.format-preview-toggle.active .preview-toggle-switch {
+    transform: translateX(20px);
+    background: white;
+}
+
+.format-item {
+    padding: 8px 12px;
+    color: var(--text-primary);
+    border-radius: 4px;
+    font-size: 13px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.format-item:hover {
+    background: var(--bg-hover);
+}
+
+.format-item.active {
+    background: var(--accent-primary-bg);
+    color: var(--accent-primary);
+    font-weight: 500;
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    color: var(--text-primary);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.dropdown-item .ti {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.dropdown-item:hover {
+    background: var(--bg-hover);
+    color: var(--accent-primary);
+}
+
+.dropdown-item.active {
+    background: var(--accent-primary-bg);
+    color: var(--accent-primary);
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: var(--border-primary);
+    margin: 4px 0;
+}
+
+.preview-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: none;
+    border: 1px solid var(--border-primary);
+    color: var(--text-primary);
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+    min-width: 24px;
+    height: 28px;
+}
+
+.preview-btn:hover {
+    border-color: var(--accent-primary);
+    background: var(--accent-primary-bg);
+    color: var(--accent-primary);
+}
+
+.preview-btn-icon {
+    display: none;
+}
+
+.preview-btn-text {
+    display: inline;
+}
+
+.response-content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.tree-view {
+    display: none; /* Tree view removed as per requirement */
+}
+
+.tree-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tree-icon .ti {
+    width: 12px;
+    height: 12px;
+}
+
+/* Preview/Code Toggle States */
+.response-content .tree-view {
+    display: none !important; /* Always hidden */
+}
+
+.response-content.preview-mode .code-editor {
+    display: none;
+}
+
+.response-content.code-mode .preview-container {
+    display: none;
+}
+
+.preview-container {
+    flex: 1;
+    background: var(--preview-bg);
+    overflow: auto;
+    padding: 20px;
+}
+
+.preview-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+    font-size: 14px;
+    color: var(--preview-text);
+}
+
+.preview-table th {
+    background: var(--preview-table-header);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid var(--preview-table-border);
+}
+
+.preview-table td {
+    padding: 12px 16px;
+    border: 1px solid var(--preview-table-border);
+}
+
+.preview-table tr:hover {
+    background: var(--preview-table-hover);
+}
+
+.xml-tag {
+    color: var(--code-tag);
+}
+
+.xml-attr {
+    color: var(--code-attr);
+}
+
+.xml-string {
+    color: var(--code-string);
+}
+
+.xml-text {
+    color: var(--code-text);
+}
+

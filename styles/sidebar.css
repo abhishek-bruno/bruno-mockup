@@ -1,0 +1,257 @@
+/* ============================================
+   Bruno UI - Sidebar Styles
+   ============================================ */
+
+.sidebar {
+    width: 240px;
+    min-width: 0;
+    max-width: 600px;
+    flex-shrink: 0;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-primary);
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    transition: width 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sidebar.collapsed {
+    width: 0;
+    min-width: 0;
+    border-right: none;
+}
+
+.sidebar.collapsed .sidebar-resizer {
+    display: none;
+}
+
+.sidebar-resizer {
+    width: 4px;
+    background: var(--bg-secondary);
+    cursor: col-resize;
+    position: relative;
+    border-left: 1px solid var(--border-primary);
+    transition: background 0.2s;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.sidebar-resizer:hover {
+    background: var(--bg-tertiary);
+}
+
+.sidebar-resizer::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 40px;
+    background: var(--border-secondary);
+    border-radius: 1px;
+}
+
+.sidebar-resizer.dragging {
+    background: rgba(249, 115, 22, 0.2);
+}
+
+.sidebar-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.sidebar.collapsed .sidebar-content {
+    display: none;
+}
+
+.sidebar-header {
+    height: 44px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.sidebar-tabs {
+    display: flex;
+    gap: 4px;
+    flex: 1;
+}
+
+.sidebar-tab {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s;
+    flex: 1;
+}
+
+.sidebar-tab:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.sidebar-tab.active {
+    background: var(--bg-active);
+    color: var(--accent-primary);
+}
+
+.sidebar-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.search-box {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.search-input {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border-primary);
+    color: var(--text-primary);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.search-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.collections-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 4px;
+}
+
+.collection-item {
+    padding: 6px 8px;
+    margin: 2px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.collection-item .ti {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+.collection-item:hover {
+    background: var(--bg-hover);
+}
+
+.collection-item.active {
+    background: var(--bg-active);
+}
+
+.method-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.method-get {
+    background: var(--status-success-bg);
+    color: var(--status-success);
+}
+
+.method-post {
+    background: var(--accent-primary-bg);
+    color: var(--accent-primary);
+}
+
+.method-put {
+    background: var(--status-info-bg);
+    color: var(--status-info);
+}
+
+.method-delete {
+    background: var(--status-error-bg);
+    color: var(--status-error);
+}
+
+.method-patch {
+    background: var(--status-warning-bg);
+    color: var(--status-warning);
+}
+
+/* ============================================
+   History List
+   ============================================ */
+.history-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 4px;
+}
+
+.history-item {
+    padding: 10px 8px;
+    margin: 2px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.history-item:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-primary);
+}
+
+.history-item-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.history-url {
+    color: var(--text-primary);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 12px;
+}
+
+.history-item-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 11px;
+}
+
+.history-time {
+    color: var(--text-tertiary);
+}
+
+.history-status {
+    font-weight: 500;
+    font-size: 11px;
+}
+

@@ -1,0 +1,128 @@
+/* ============================================
+   Bruno UI - Responsive Styles
+   ============================================ */
+
+/* Responsive Request Tabs */
+.request-tabs-panel.compact {
+    font-size: 12px;
+    padding: 0 12px;
+    gap: 16px;
+}
+
+.request-tabs-panel.compact .request-tab-item {
+    font-size: 12px;
+    padding: 10px 0;
+}
+
+/* Hide less important tabs in compact mode, keeping active tab visible */
+.request-tabs-panel.compact.has-overflow .request-tab-item:not(.active):nth-child(n+7) {
+    display: none;
+}
+
+.request-tabs-panel.ultra-compact {
+    font-size: 11px;
+    padding: 0 10px;
+    gap: 12px;
+}
+
+.request-tabs-panel.ultra-compact .request-tab-item {
+    font-size: 11px;
+    padding: 8px 0;
+}
+
+/* Hide more tabs in ultra-compact mode, keeping active tab visible */
+.request-tabs-panel.ultra-compact.has-overflow .request-tab-item:not(.active):nth-child(n+5) {
+    display: none;
+}
+
+.request-tabs-panel.ultra-compact .format-controls {
+    display: none;
+}
+
+/* Responsive Response Header */
+.response-unified-bar.compact {
+    padding: 0 12px;
+    gap: 12px;
+    font-size: 12px;
+}
+
+.response-unified-bar.compact .response-tabs {
+    gap: 16px;
+}
+
+.response-unified-bar.compact .response-tab {
+    font-size: 12px;
+}
+
+.response-unified-bar.compact .response-stats {
+    font-size: 11px;
+    gap: 10px;
+}
+
+.response-unified-bar.ultra-compact {
+    padding: 0 10px;
+    gap: 10px;
+    height: 36px;
+}
+
+.response-unified-bar.ultra-compact .response-tabs {
+    gap: 12px;
+}
+
+.response-unified-bar.ultra-compact .response-tab {
+    font-size: 11px;
+    padding: 8px 0;
+}
+
+.response-unified-bar.ultra-compact .tab-badge {
+    display: none;
+}
+
+.response-unified-bar.ultra-compact .response-stats {
+    font-size: 10px;
+    gap: 8px;
+}
+
+.response-unified-bar.ultra-compact .response-stats span:nth-child(3) {
+    display: none; /* Hide bytes in ultra-compact */
+}
+
+.response-unified-bar.ultra-compact .control-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+}
+
+.response-unified-bar.ultra-compact .format-dropdown-btn {
+    font-size: 11px;
+    padding: 3px 20px 3px 6px;
+    min-width: 50px;
+}
+
+.response-unified-bar.ultra-compact .preview-btn {
+    font-size: 11px;
+    padding: 3px 8px;
+}
+
+/* Show icon only when shrunk */
+.response-unified-bar.compact .preview-btn-icon,
+.response-unified-bar.ultra-compact .preview-btn-icon {
+    display: inline;
+}
+
+.response-unified-bar.compact .preview-btn-text,
+.response-unified-bar.ultra-compact .preview-btn-text {
+    display: none;
+}
+
+.response-unified-bar.compact .preview-btn,
+.response-unified-bar.ultra-compact .preview-btn {
+    padding: 4px;
+    min-width: 28px;
+}
+
+/* Preview button should always be visible */
+.preview-btn {
+    display: flex !important;
+}
+

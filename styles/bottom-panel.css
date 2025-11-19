@@ -1,0 +1,143 @@
+/* ============================================
+   Bruno UI - Bottom Panel Styles
+   ============================================ */
+
+.bottom-panel-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    transition: height 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+    min-height: 36px; /* Minimum height to keep buttons visible (4px resizer + 32px panel) */
+}
+
+.bottom-panel-resizer {
+    height: 4px;
+    background: var(--bg-secondary);
+    cursor: row-resize;
+    position: relative;
+    border-top: 1px solid var(--border-primary);
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.bottom-panel-resizer:hover {
+    background: var(--bg-tertiary);
+}
+
+.bottom-panel-resizer::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 2px;
+    background: var(--border-secondary);
+    border-radius: 1px;
+}
+
+.bottom-panel-resizer.dragging {
+    background: rgba(249, 115, 22, 0.2);
+}
+
+.bottom-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 32px;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.bottom-panel-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.bottom-panel-item {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.bottom-panel-item:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.bottom-panel-item.active {
+    color: var(--accent-primary);
+    background: var(--accent-primary-bg);
+}
+
+.bottom-panel-separator {
+    width: 1px;
+    height: 20px;
+    background: var(--border-primary);
+    margin: 0 8px;
+}
+
+.bottom-panel-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.bottom-panel-icon {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 15px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.bottom-panel-icon .ti {
+    width: 16px;
+    height: 16px;
+}
+
+.bottom-panel-icon:hover {
+    background: var(--border-primary);
+    color: var(--text-primary);
+}
+
+.bottom-panel-icon:active {
+    transform: scale(0.95);
+}
+
+/* Notification badge */
+#notificationsBtn::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    display: none; /* Hidden by default, can be shown when there are notifications */
+}
+
